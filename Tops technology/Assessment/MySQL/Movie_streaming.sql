@@ -125,15 +125,6 @@ HAVING COUNT(DISTINCT u.city) >= 5;
 -- 7) Find the average number of movies watched per user per month.
 SELECT count(*) / count(distinct user_id) FROM watch_history;
 select *from watch_history;
-SELECT 
-    SUM(watch_count) / COUNT(*) AS avg_movies_per_user_per_month
-FROM (
-    SELECT 
-        user_id,
-        COUNT(*) AS watch_count
-    FROM watch_history
-    GROUP BY user_id
-) AS t;
 
 -- 8) List users who watched the same movie more than once.
 SELECT user_id, movie_id, COUNT(*) AS watch_count
